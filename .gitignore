@@ -1,16 +1,6 @@
 # Node
 node_modules/
-
-# Developer tools' files
-.lite_workspace.lua
-
-# Neutralinojs binaries and builds
-/bin
-/dist
-
-# Neutralinojs client (minified)
-neutralino.js
-
-# Neutralinojs related files
-.storage
 *.log
+.DS_Store
+dest/
+yarn.lock
