@@ -7,9 +7,11 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
   </head>
   <body>
-    <div id="neutralinoapp">
-      
-      <div id="editor"></div>
+      <div id="editor">
+        <p>
+          Starting content.
+        </p>
+      </div>
       <script>
         ClassicEditor
             .create( document.querySelector( '#editor' ) )
@@ -17,13 +19,5 @@
                 console.error( error );
             } );
       </script>
-    </div>
-    <!-- Neutralino.js client. This file is gitignored, 
-        because `neu update` typically downloads it.
-        Avoid copy-pasting it. 
-        -->
-    <script src="js/neutralino.js"></script>
-    <!-- Your app's source files -->
-    <script src="js/main.js"></script>
   </body>
 </html>
