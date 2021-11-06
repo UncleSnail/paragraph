@@ -1,16 +1,10 @@
 {
-  "dependencies": {
-    "@ckeditor/ckeditor5-build-classic": "^31.0.0"
-  },
   "name": "paragraph",
-  "description": "The simplest template for a Neutralinojs app. It's possible to use your favorite frontend framework using the following steps.",
   "version": "1.0.0",
-  "main": "main.js",
-  "devDependencies": {
-    "electron": "^15.3.0"
-  },
+  "description": "Visualize and improve your writing",
+  "type": "module",
+  "main": "index.js",
   "scripts": {
-    "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +16,15 @@
   "bugs": {
     "url": "https://github.com/UncleSnail/paragraph/issues"
   },
-  "homepage": "https://github.com/UncleSnail/paragraph#readme"
+  "homepage": "https://github.com/UncleSnail/paragraph#readme",
+  "dependencies": {
+    "rehype-document": "^6.0.0",
+    "rehype-stringify": "^9.0.2",
+    "remark-parse": "^10.0.0",
+    "remark-rehype": "^10.0.1",
+    "remark-slug": "^7.0.1",
+    "remark-toc": "^8.0.1",
+    "unified": "^10.1.0",
+    "unified-stream": "^2.0.0"
+  }
 }
