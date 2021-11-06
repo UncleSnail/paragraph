@@ -1,6 +1,9 @@
 {
   "dependencies": {
-    "@ckeditor/ckeditor5-build-classic": "^31.0.0"
+    "@ckeditor/ckeditor5-build-classic": "^31.0.0",
+    "retext-english": "^4.1.0",
+    "unified": "^10.1.0",
+    "virtual-dom": "^2.1.1"
   },
   "name": "paragraph",
   "description": "The simplest template for a Neutralinojs app. It's possible to use your favorite frontend framework using the following steps.",
@@ -8,7 +11,16 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "prettier"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "useTabs": false,
+    "singleQuote": true,
+    "bracketSpacing": false,
+    "semi": false,
+    "trailingComma": "none"
   },
   "repository": {
     "type": "git",

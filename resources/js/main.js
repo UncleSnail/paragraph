@@ -1,3 +1,37 @@
+import h from 'virtual-dom/h.js'
+import {unified} from 'unified'
+import english from 'retext-english'
+
+const colors = [60,300,120,180,0]
+
+const processor = unified().use(english) 
+const root = document.querySelector('#root')
+const tree = render(document.getElementById("text"))
+const dom = root.append(createElement(tree))
+
+function onchange(ev) {
+    const next = render(ev.target.value)
+    dom = patch(dom, diff(tree, next))
+    tree = next
+}
+
+function render(text) {
+    const node = parse(text)
+
+    return h('div', {classname: 'editor'}, [
+        h('div', {key: 'draw', className: 'draw'}, underline(node)),
+        h('textarea', {
+            key: 'area',
+            value: text,
+            oninput: onchange
+        })
+    ])
+
+    function underline() {
+
+    }
+
+}
 
 window.myApp = {
     showInfo: () => {
