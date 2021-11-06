@@ -15,7 +15,7 @@
   },
   "modes": {
     "window": {
-      "title": "myapp",
+      "title": "paragraph",
       "width": 800,
       "height": 500,
       "minWidth": 400,
@@ -46,7 +46,7 @@
     }
   },
   "cli": {
-    "binaryName": "myapp",
+    "binaryName": "paragraph",
     "resourcesPath": "/resources/",
     "clientLibrary": "/resources/js/neutralino.js",
     "binaryVersion": "3.0.0",
