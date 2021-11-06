@@ -2,14 +2,13 @@ import h from 'virtual-dom/h.js'
 import {unified} from 'unified'
 import english from 'retext-english'
 
-const colors = [60,300,120,180,0]
-
-const processor = unified().use(english) 
+const processor = unified().use(english)
 const root = document.querySelector('#root')
-const tree = render(document.getElementById("text"))
-const dom = root.append(createElement(tree))
+let tree = render(document.getElementById("text"))
+let dom = root.appendChild(createElement(tree))
 
 function onchange(ev) {
+    console.log("CHANGED!")
     const next = render(ev.target.value)
     dom = patch(dom, diff(tree, next))
     tree = next
@@ -28,9 +27,8 @@ function render(text) {
     ])
 
     function underline() {
-
+        
     }
-
 }
 
 window.myApp = {

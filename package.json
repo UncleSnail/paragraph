@@ -8,11 +8,13 @@
   "name": "paragraph",
   "description": "The simplest template for a Neutralinojs app. It's possible to use your favorite frontend framework using the following steps.",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "resources/js/main.js",
+  "type": "module",
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "prettier"
+    "lint": "prettier",
+    "start": ""
   },
   "prettier": {
     "tabWidth": 2,
