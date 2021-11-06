@@ -34,6 +34,6 @@ unified()
   .use(rehypeStringify)
   .process(file)
   .then((file) => {
-    console.error(reporter(file))
+     console.error(reporter(file))
     // console.log(String(file))
   })
