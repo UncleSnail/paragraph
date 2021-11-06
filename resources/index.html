@@ -2,22 +2,95 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>NeutralinoJs</title>
+    <title>Paragraph</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/decoupled-document/ckeditor.js"></script>
   </head>
   <body>
-      <div id="editor">
-        <p>
-          Starting content.
-        </p>
-      </div>
-      <script>
-        ClassicEditor
-            .create( document.querySelector( '#editor' ) )
-            .catch( error => {
-                console.error( error );
+    <!-- Toolbar -->
+    <div id="toolbar-container"></div>
+
+    <!-- Buttons -->
+
+    <div><button id="highlight" onclick="underline()">highlight</button></div>
+
+    <!-- Editor -->
+    <div id="editor">
+      <p align="center" style="margin-top: 0.08in; margin-bottom: 0.08in; line-height: 150%">
+        <b>A Frosty and Some Fries</b></p>
+      <p style="margin-top: 0.08in; margin-bottom: 0.08in; line-height: 150%">
+        If you leave fries on your plate you are a horrible person. The
+      little scraps of lettuce in the bottom of a SubWay wrapper. That’s
+      not a damnable offense. A pickle left on your plate. Worse, the
+      people who leave entire portions of their meal on the plate and then
+      throw it away as if they didn’t just trash a perfectly good
+      sandwich? You bought the meal, eat it! To make it worse, society
+      thinks it’s unacceptable for people who actually want to eat what
+      you have left as trash.</p>
+      <p style="margin-top: 0.08in; margin-bottom: 0.08in; line-height: 150%">
+        Last week I was at Wendy’s just trying to enjoy my fries and
+      frosty when the girl in the next booth, who was trying to look hot
+      but was really making everyone else in the restaurant want to barf,
+      gets up and just leaves. Flat out picks up her little over-sparkled
+      makeup bag and struts toward the nearest glowing red “EXIT” sign.
+      Well, that took her straight past me. Me and my frosty fries. Her
+      with her Big Bacon Cheddar Cheeseburger and half a box of fresh and
+      piping nuggies. Well, as this chick slides by I humbly petition,</p>
+      <p style="margin-top: 0.08in; margin-bottom: 0.08in; line-height: 150%">
+        “Hey, are you going home?”</p>
+      <p style="margin-top: 0.08in; margin-bottom: 0.08in; line-height: 150%">
+        “Why?”</p>
+      <p style="margin-top: 0.08in; margin-bottom: 0.08in; line-height: 150%">
+        “I was just wondering if you were going to eat that.”</p>
+      <p style="margin-top: 0.08in; margin-bottom: 0.08in; line-height: 150%">
+        “I’m going to eat <i>you</i>.”</p>
+      <p style="margin-top: 0.08in; margin-bottom: 0.08in; line-height: 150%">
+        Then—the audacity—she makes a bee-line back to her booth, opens
+      the top of that delicious conglomerate of cheesy bacon goodness and
+      spits, smearing the top bun back on. Like that’s going to stop me.
+      With a flip of her despicably groomed hair, she swivels without even
+      another word to me and stalks out the far door. As if I’m the
+      disgusting one!</p>
+      <p style="margin-top: 0.08in; margin-bottom: 0.08in; line-height: 150%">
+        Well, my one on one date with a pocket of piping hot fries and
+      chilled sugar-milk lost most of its savor at this unpalatable
+      interaction, but I was somewhat consoled by collecting the mistreated
+      remains of her undeserving sandwich. Soon I recovered from the sight
+      of such a low human being and thoroughly enjoyed and luscious warmth
+      of each juicy nug and my now-topless burger. And all at the price of
+      a frosty and some fries.</p>
+    </div>
+    <script>
+      // import DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
+
+      // Implement highlight button.
+      var highlighted = false;
+      function underline() {
+        highlighted = !highlighted
+        if (highlighted) {
+          document.getElementById("editor").classList.add("underline")
+        } else {
+          document.getElementById("editor").classList.remove("underline")
+        }
+      }
+
+      DecoupledEditor
+          .create( document.querySelector( '#editor' ) )
+          .then( editor => {
+            const toolbarContainer = document.querySelector( '#toolbar-container' );
+
+            toolbarContainer.appendChild( editor.ui.view.toolbar.element );
+            editor.model.document.on( 'change', () => {
+              console.log( 'The data has changed!' );
+              if (highlighted) {
+                document.getElementById("editor").classList.add("underline")
+              }
             } );
-      </script>
+          } )
+          .catch( error => {
+              console.error( error );
+          } );
+      // console.log(editor);
+    </script>
   </body>
 </html>

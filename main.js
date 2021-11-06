@@ -9,9 +9,9 @@ function createWindow () {
     win.loadFile('resources/index.html')
 }
 
-app.whenReady().then(() => {
-    createWindow()
-})
+// app.whenReady().then(() => {
+//     createWindow()
+// })
 
 app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') app.quit()
