@@ -298,6 +298,7 @@ function render(state) {
     var result = 'value' in node ? node.value : all(node, parentIds)
     var id = parentIds.join('-') + '-' + key
     var attrs = node.type === state.type ? highlight(node) : null
+    console.log(attrs)
 
     if (attrs) {
       result = h('span', xtend({key: id, id}, attrs), result)
@@ -341,10 +342,13 @@ function highlight(node) {
 
   weight = unlerp(state.age, state.age + scale, average)
   hue = lerp(120, 0, min(1, max(0, weight)))
+  // Console.log(hue)
 
   return {
     style: {
-      backgroundColor: 'hsla(' + [hue, '93%', '70%', 0.5].join(', ') + ')'
+      // BackgroundColor: 'hsla(' + [hue, '93%', '70%', 0.5].join(', ') + ')'
+      // textDecorationColor: 'rgb(' + 256 - hue + ', ' + 0, 0)'
+      textDecorationColor: 'hsla(' + [hue, '93%', '70%', 0.5].join(', ') + ')'
     }
   }
 }

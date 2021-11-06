@@ -118,7 +118,8 @@ textarea,
   font-family: monospace;
   font-size: 16px;
   letter-spacing: normal;
-  line-height: calc(1em + 1ex);
+
+  /* line-height: calc(1em + 1ex); */
   white-space: pre-wrap;
   word-wrap: break-word;
   background: transparent;
@@ -131,6 +132,14 @@ textarea,
   height: 100%;
   overflow: hidden;
   resize: none;
+  line-height: 1.8;
+}
+
+span {
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 0, 0, 0);
+  text-decoration-thickness: 0.3em;
+  text-underline-offset: 0.4em;
 }
 
 .draw {
