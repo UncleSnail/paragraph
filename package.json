@@ -1,26 +1,36 @@
 {
-  "dependencies": {
-    "@ckeditor/ckeditor5-build-classic": "^31.0.0"
-  },
   "name": "paragraph",
-  "description": "The simplest template for a Neutralinojs app. It's possible to use your favorite frontend framework using the following steps.",
+  "description": "Visualize and improve your writing.",
   "version": "1.0.0",
-  "main": "main.js",
-  "devDependencies": {
-    "electron": "^15.3.0"
-  },
+  "private": true,
   "scripts": {
-    "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv public --no-clear"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/UncleSnail/paragraph.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Caleb Marcoux",
+  "license": "GPL3",
   "bugs": {
     "url": "https://github.com/UncleSnail/paragraph/issues"
   },
-  "homepage": "https://github.com/UncleSnail/paragraph#readme"
+  "homepage": "https://github.com/UncleSnail/paragraph#readme",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.0",
+    "rollup": "^2.3.4",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-svelte": "^7.0.0",
+    "rollup-plugin-terser": "^7.0.0",
+    "svelte": "^3.0.0"
+  },
+  "dependencies": {
+    "sirv-cli": "^1.0.0",
+    "unified": "^10.1.0",
+    "retext-english": "^4.1.0"
+  }
 }
