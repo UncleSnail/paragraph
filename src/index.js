@@ -147,7 +147,7 @@ function render(state) {
   setTimeout(resize, 4)
 
   return h('div', [
-    h('section.highlight', [h('h1', {key: 'title'}, 'Readability')]),
+    h('section.highlight', [h('h1', {key: 'title'}, 'Paragraph')]),
     h('div', {key: 'editor', className: 'editor'}, [
       h('div', {key: 'draw', className: 'draw'}, pad(all(tree, []))),
       h('textarea', {
@@ -346,8 +346,6 @@ function highlight(node) {
 
   return {
     style: {
-      // BackgroundColor: 'hsla(' + [hue, '93%', '70%', 0.5].join(', ') + ')'
-      // textDecorationColor: 'rgb(' + 256 - hue + ', ' + 0, 0)'
       textDecorationColor: 'hsla(' + [hue, '93%', '70%', 0.5].join(', ') + ')'
     }
   }
