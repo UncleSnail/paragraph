@@ -7,29 +7,38 @@
 
 	const processor = unified().use(english);
 
-	function update(event) {
-		var tree = processor.parse('This is a sentence.');
-		// console.log(tree);
-		// console.log(event);
-		canvas = [...changes, changes];
+	function update() {
+		cursorEnd = canvasElement.selectionEnd;
+		console.log(cursorStart, cursorEnd);
+		let newText = changes.join('');
+		console.log(newText);
+		var tree = processor.parse(newText);
+		console.log(tree);
+		canvas.push(...changes);
+
+		// Reset our edit starting position.
 		changes = [];
+		cursorStart = canvasElement.selectionStart;
 	}
 
-	const changes = [];
 	function recordChange(event) {
 		changes.push(event.data);
-		update(event);
+		change();
 	}
 	let change = debounce(update, 300);
-	const canvas = [];
+
+	let canvasElement;
+	let cursorStart = 0;
+	let cursorEnd = 0;
+	let changes = [];
+	let canvas = [];
 </script>
 
 <main>
 	<h1>{name}</h1>
 	<!-- oninput onchange onkeyup onmouseup onpaste -->
 	<div class="editor">
-		<div class="canvas">{canvas}</div>
-		<div class="input" contenteditable="true" on:input={recordChange}></div>
+		<textarea class="canvas" contenteditable="true" on:input={recordChange} bind:this={canvasElement}></textarea>
 	</div>
 	<p><Word/> <Word/> <Word/> <Word/> <Word/></p>
 </main>
@@ -54,7 +63,7 @@
 		min-height: 100vh;
 		border: lightgrey solid 1px;
 		margin: auto;
-		padding: 0.75in;
+		/* padding: 0.75in; */
 		line-height: 1.6;
 		font-size: 12pt;
 		text-align: left;
@@ -62,7 +71,7 @@
 		box-sizing: border-box;
 	}
 
-	.input,.canvas {
+	.canvas {
 		outline: none;
 		position: absolute;
 		width:100%;
@@ -70,7 +79,7 @@
 	}
 
 	.canvas {
-		background-color: red;
+		background-color: white;
 	}
 
 	@media (min-width: 640px) {
