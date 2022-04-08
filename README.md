@@ -1,3 +1,3 @@
 # Paragraph -> Paragrapher
 
-This is the original testing repository for the Paragrapher app (paragrapher.app), formerly just Paragraph.
+This is the original testing repository for the Paragrapher app (paragrapher.org), formerly just Paragraph.
